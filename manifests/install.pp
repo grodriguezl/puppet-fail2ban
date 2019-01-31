@@ -1,6 +1,12 @@
 # == Class: fail2ban::install
 #
 class fail2ban::install {
+
+package { 'redhat-lsb-core':
+     ensure  => latest,
+  }
+
+
   if $::fail2ban::package_name {
     package { 'fail2ban':
       ensure => $::fail2ban::package_ensure,
